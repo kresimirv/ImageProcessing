@@ -1,0 +1,32 @@
+﻿<Window x:Class="ImageClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Image Client" Height="600" Width="950" AllowsTransparency="True" OpacityMask="White" WindowStyle="None" Background="Transparent" WindowStartupLocation="CenterScreen" Icon="/ImageClient;component/Images/client.ico" Loaded="Window_Loaded" Drop="Window_Drop" AllowDrop="True" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/ImageClient;component/Images/background.png" />
+        </Grid.Background>
+        <Image Height="300" HorizontalAlignment="Left" Margin="112,144,0,0" Name="picInput" Stretch="Uniform" VerticalAlignment="Top" Width="250" />
+        <Image Height="300" HorizontalAlignment="Left" Margin="574,144,0,0" Name="picOutput" Stretch="Uniform" VerticalAlignment="Top" Width="250" />
+        <GroupBox Header="Filters" Height="300" HorizontalAlignment="Left" Margin="390,144,0,0" Name="groupBox1" VerticalAlignment="Top" Width="162" IsEnabled="True" Foreground="Black">
+            <Grid Height="250">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="108*" />
+                    <RowDefinition Height="144*" />
+                </Grid.RowDefinitions>
+                <CheckBox Content="Grayscale" Height="16" HorizontalAlignment="Left" Margin="6,6,0,0" Name="chkGrayscale" VerticalAlignment="Top" />
+                <CheckBox Content="Flip" Height="16" HorizontalAlignment="Left" Margin="6,28,0,0" Name="chkFlip" VerticalAlignment="Top" />
+                <CheckBox Content="Rotate" Height="16" HorizontalAlignment="Left" Margin="6,50,0,0" Name="chkRotate" VerticalAlignment="Top" Checked="chkRotate_Checked" Unchecked="chkRotate_Unchecked" />
+                <RadioButton Content="90 degrees" Name="rboRotate90" IsChecked="True" Margin="17,73,14,13" GroupName="rotateGroup" IsEnabled="False" />
+                <RadioButton Content="180 degrees" IsChecked="False" Name="rboRotate180" Margin="17,96,14,133" GroupName="rotateGroup" IsEnabled="False" Grid.RowSpan="2" />
+                <RadioButton Content="270 degrees" IsChecked="False" Name="rboRotate270" Margin="17,12,14,110" GroupName="rotateGroup" IsEnabled="False" Grid.Row="1" />
+            </Grid>
+        </GroupBox>
+        <Button Content="Convert" Height="45" HorizontalAlignment="Left" Margin="405,0,0,59" Name="btnConvert" VerticalAlignment="Bottom" Width="133" Click="btnConvert_Click" Opacity="0" />
+        <Button Content="Save Image" Height="44" HorizontalAlignment="Left" Margin="634,0,0,59" Name="btnSaveImage" VerticalAlignment="Bottom" Width="127" Click="btnSaveImage_Click" Opacity="0" />
+        <Button Height="40" Margin="778,51,0,0" Name="btnMinimizeButton" VerticalAlignment="Top" Opacity="0" Click="btnMinimizeButton_Click" Content="Minimize" HorizontalAlignment="Left" Width="32" />
+        <Button Content="Close" Height="40" Margin="808,51,88,0" Name="btnCloseButton" Opacity="0" VerticalAlignment="Top" Click="btnCloseButton_Click" Width="32" />
+        <Label Content="Input image" Height="28" HorizontalAlignment="Left" Margin="112,110,0,0" Name="label1" VerticalAlignment="Top" Width="230" Foreground="Gainsboro"></Label>
+        <Label Content="Output image" Foreground="Gainsboro" Height="28" HorizontalAlignment="Right" Margin="0,110,130,0" Name="label2" VerticalAlignment="Top" Width="230" />
+    </Grid>
+</Window>
